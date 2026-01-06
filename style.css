@@ -1,0 +1,122 @@
+:root {
+    --red: #ff0033;
+    --dark-bg: #0a0a0a;
+}
+
+* {
+    scroll-behavior: smooth;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+}
+
+.font-rajdhani {
+    font-family: 'Rajdhani', sans-serif;
+}
+
+.font-inter {
+    font-family: 'Inter', sans-serif;
+}
+
+.nav-link {
+    @apply transition-all duration-200 relative;
+}
+
+.nav-link:hover {
+    @apply text-red-500;
+}
+
+.nav-link::after {
+    content: '';
+    @apply absolute -bottom-1 left-0 w-0 h-[2px] bg-red-600 transition-all duration-300;
+}
+
+.nav-link:hover::after {
+    @apply w-full;
+}
+
+.mobile-nav-link {
+    @apply text-3xl font-rajdhani font-bold hover:text-red-500 transition-colors;
+}
+
+.admin-tab {
+    @apply flex items-center gap-3 w-full p-5 font-bold text-xs tracking-[0.2em] text-zinc-500 border-l-4 border-transparent transition-all text-left uppercase;
+}
+
+.admin-tab.active {
+    @apply text-red-500 border-red-600 bg-red-600/5;
+}
+
+.admin-tab:hover:not(.active) {
+    @apply bg-zinc-900 text-zinc-300;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    @apply bg-zinc-950;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-zinc-800 hover:bg-red-600 rounded-full transition-colors;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}
+
+.animate-shake {
+    animation: shake 0.2s ease-in-out 0s 2;
+}
+
+#loading-screen {
+    transition: opacity 0.5s ease-out;
+}
+
+.glass-card {
+    background: rgba(18, 18, 18, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.cyber-border {
+    position: relative;
+}
+
+.cyber-border::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border-top: 2px solid var(--red);
+    border-left: 2px solid var(--red);
+}
+
+.cyber-border::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    border-bottom: 2px solid var(--red);
+    border-right: 2px solid var(--red);
+}
